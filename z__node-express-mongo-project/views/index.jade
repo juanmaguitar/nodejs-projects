@@ -1,0 +1,67 @@
+extends layout
+
+block content
+
+	style
+		h1 { color: blue; }
+
+	script
+		console.log("hey you!")
+
+	h1= title
+	p Tu nombre usuario es: #{username}
+
+	h2.titulo Hola, mi nombre es Oscar
+
+	h3.subtitulo.cursiva y me gusta programar en los siguientes lenguajes:
+
+	ul#lenguajes.lista
+		li Javascript
+		li Objective-C
+
+	- var text = 'Today is ' + new Date();
+	- var codeNameUser = 'And my name is <strong>juanma</strong>';
+	- var nameUser = '<span>oscar</span> ';
+
+	ul
+		li I tell you this: #[strong #{ text }]
+		li!= codeName
+		li You can click here 
+			a(href="/profile", rel="nofollow") ver el perfil
+		li!= nameUser
+			a(href="/delete") x
+
+	p un texto corto
+
+
+	p
+		| un
+		| texto
+		| muy
+		| largo
+
+	p.
+		overluxurious remerge archidiaconal canoeist
+		preimmigration interspersal peristomatic swore squaller
+		acoelomatous pimping monadiform Hamamelidaceae counterjudging
+		overhighly pollucite commissive thuggeeism Aeolis pancosmist impoor thermokinematics brownstone proliturgical
+
+	- var authors = [ {name: 'oscar', tutorial: 'iOS'}, {name: 'carlos', tutorial: 'django'}, {name: 'alberto', tutorial: 'git'}, {name: 'jonathan', tutorial: 'how to'}, {name: 'ricardo', tutorial: 'rails'}, {name: 'ramses', tutorial: 'php'} ];
+
+	include author-info
+
+	ul
+		each author in authors
+			li The name is: #[strong #{ author.name }] 
+			+authorInfo( author )
+
+	mixin field( theFieldType, theFieldName, theFieldLabel)
+		.field(class='field-' + theFieldType)
+			label #{theFieldLabel}:
+			input(type=type, name='user[#{theFieldName}]')
+
+	form
+		+field('text', 'userName', 'Username')
+		+field('text', 'emailName', 'Email')
+		+field('password', 'passName', 'Password')
+		input(type='submit', value='Sign Up')
