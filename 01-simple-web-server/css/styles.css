@@ -1,0 +1,12 @@
+body {
+  background-color: #212121;
+  color: #fff;
+}
+
+#accordion, .jumbotron {
+	color: #212121;
+}
+
+img {
+	padding:10px;
+}

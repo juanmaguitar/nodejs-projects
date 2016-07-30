@@ -1,0 +1,18 @@
+extends layout
+
+block content
+	form.form-horizontal(role="form", action="/users", method="POST")
+		div.form-group
+			label.col-lg-3.control-label(for="email") Email address
+			div.col-lg-9
+				input#email.form-control(type="email", name="mail", placeholder="Enter email")
+		div.form-group
+			div.col-lg-offset-3.col-lg-9
+				div.checkbox
+					label
+						input(type="checkbox")
+						| Remember me
+		div.form-group
+			div.col-lg-offset-3.col-lg-9
+				button.btn.btn-default(type="submit") Submit
+
